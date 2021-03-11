@@ -55,6 +55,7 @@ class SimulationYears(list):
         poisson: PoissonModel = PoissonModel(landfall_rate=self.landfall_rate, samples=self.years)
         poisson.calculate()
 
+        # TODO => This is where we would implement multithreading to speed up the calculation process
         for year in poisson.cached_results:
             self._load_year(samples=int(year))
 
